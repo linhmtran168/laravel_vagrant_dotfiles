@@ -40,13 +40,10 @@ ZSH_THEME="gallois"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails ruby rails4 history rbenv)
+plugins=(git laravel history composer postgres)
 
 # Customize to your needs...
 # Custom path
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
-
