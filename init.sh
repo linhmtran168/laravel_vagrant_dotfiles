@@ -4,7 +4,7 @@ sudo apt-get update
 sudo apt-get install -y software-properties-common
 
 # Install necessary packages
-sudo apt-get install -y zsh make vim tmux curl wget nginx php5-fpm php5-mcrypt php5-curl php5-cli php5-pgsql git zip unzip
+sudo apt-get install -y zsh make vim tmux curl wget nginx php5-fpm php5-mcrypt php5-curl php5-cli php5-pgsql git zip unzip php5-apc php5-gd
 
 # Install postgresql
 echo "Writing /etc/apt/sources.list.d/pgdg.list ..."
