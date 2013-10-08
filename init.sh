@@ -1,19 +1,31 @@
 #!/bin/sh
 # Update the image
 sudo apt-get update
-sudo apt-get install -y software-properties-common
 
 # Install necessary packages
-sudo apt-get install -y zsh make vim tmux curl wget nginx php5-fpm php5-mcrypt php5-curl php5-cli php5-pgsql git zip unzip php-apc php5-gd
+sudo apt-get install -y software-properties-common python-software-properties zsh make vim tmux curl wget git zip unzip
 
-# Install postgresql
+# Setup repo for php, nginx, posgres
+#nginx
+wget http://nginx.org/keys/nginx_signing.key
+sudo apt-key add nginx_signing.key
+echo "Wrting /etc/apt/sources.list.d/nginx_stable.list ..."
+sudo cat > /etc/apt/sources.list.d/nginx_stable.list <<EOF
+deb http://nginx.org/packages/ubuntu/ precise nginx
+deb-src http://nginx.org/packages/ubuntu/ precise nginx
+EOF
+# php
+sudo add-apt-repository ppa:ondrej/php5
+# postgresql
 echo "Writing /etc/apt/sources.list.d/pgdg.list ..."
 sudo cat > /etc/apt/sources.list.d/pgdg.list <<EOF
 deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main
 EOF
 wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
-sudo apt-get install -y postgresql 
+
+# Install php, postgresql and nginx
+sudo apt-get install -y nginx php5-fpm php5-mcrypt php5-curl php5-cli php5-pgsql php-apc php5-gd postgresql
 
 # Install composer
 sudo -u vagrant -H curl -sS https://getcomposer.org/installer | sudo -u vagrant -H php
