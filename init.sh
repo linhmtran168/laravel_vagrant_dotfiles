@@ -25,7 +25,7 @@ wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo ap
 sudo apt-get update
 
 # Install php, postgresql and nginx
-sudo apt-get install -y nginx php5-fpm php5-mcrypt php5-curl php5-cli php5-pgsql php-apc php5-gd postgresql
+sudo apt-get install -y php5-cli php5-fpm php5-mcrypt php5-curl php5-pgsql php-apc php5-gd nginx postgresql 
 
 # Install composer
 sudo -u vagrant -H curl -sS https://getcomposer.org/installer | sudo -u vagrant -H php
