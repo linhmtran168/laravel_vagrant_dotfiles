@@ -10,17 +10,17 @@ sudo apt-get install -y software-properties-common python-software-properties zs
 wget http://nginx.org/keys/nginx_signing.key
 sudo apt-key add nginx_signing.key
 echo "Wrting /etc/apt/sources.list.d/nginx_stable.list ..."
-sudo cat > /etc/apt/sources.list.d/nginx_stable.list <<EOF
+sudo bash -c "cat > /etc/apt/sources.list.d/nginx_stable.list <<EOF
 deb http://nginx.org/packages/ubuntu/ precise nginx
 deb-src http://nginx.org/packages/ubuntu/ precise nginx
-EOF
+EOF"
 # php
 sudo add-apt-repository ppa:ondrej/php5
 # postgresql
 echo "Writing /etc/apt/sources.list.d/pgdg.list ..."
-sudo cat > /etc/apt/sources.list.d/pgdg.list <<EOF
+sudo bash -c "cat > /etc/apt/sources.list.d/pgdg.list <<EOF
 deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main
-EOF
+EOF"
 wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
 
